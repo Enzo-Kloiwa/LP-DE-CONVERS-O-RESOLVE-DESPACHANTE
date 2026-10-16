@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RESOLVE Despachante | Licenciamento sem filas</title>
+<meta name="description" content="Regularize o licenciamento do seu veículo 100% online, com rapidez e segurança.">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--red:#E52320;--red2:#DC2626;--ice:#E0F2FE;--ink:#111827;--gold:#FACC15;--bg:#FFFFFF;--bg2:#F9FAFB;--card:#FFFFFF;--muted:#4B5563;--line:#E5E7EB;--field:#FFFFFF;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ice:#0C2A3F;--ink:#F3F4F6;--bg:#0B1120;--bg2:#111827;--card:#172033;--muted:#9CA3AF;--line:#2A3448;--field:#0B1120}}
+:root[data-theme="dark"]{--ice:#0C2A3F;--ink:#F3F4F6;--bg:#0B1120;--bg2:#111827;--card:#172033;--muted:#9CA3AF;--line:#2A3448;--field:#0B1120}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:1.25rem;box-shadow:0 6px 24px -10px rgba(17,24,39,.18)}
+.btn{background:var(--red);color:#fff;font-weight:800;border-radius:.9rem;padding:.85rem 1.4rem;box-shadow:0 8px 20px -8px rgba(229,35,32,.7);transition:transform .15s,background .15s;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;cursor:pointer;border:0}
+.btn:hover{background:var(--red2);transform:translateY(-2px)}
+.btn:active{transform:scale(.98)}
+.btn2{border:1.5px solid var(--line);border-radius:.9rem;padding:.85rem 1.2rem;font-weight:700;cursor:pointer;background:transparent;color:var(--ink)}
+.fld{width:100%;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:.8rem;background:var(--field);color:var(--ink);font-size:1rem;outline:none}
+.fld:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(229,35,32,.15)}
+.fld.err{border-color:var(--red)}
+.ic{width:1.25em;height:1.25em;flex:none}
+.step-dot{width:2rem;height:2rem;border-radius:9999px;display:grid;place-items:center;font-weight:800;font-size:.85rem;background:var(--line);color:var(--muted);transition:.2s}
+.step-dot.on{background:var(--red);color:#fff}
+.step-dot.ok{background:var(--gold);color:#111827}
+details summary{list-style:none;cursor:pointer}
+details summary::-webkit-details-marker{display:none}
+details[open] .chev{transform:rotate(180deg)}
+.chev{transition:transform .2s}
+.fade{animation:f .3s ease}
+@keyframes f{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E52320"/><stop offset=".5" stop-color="#6B7280"/><stop offset="1" stop-color="#111827"/></linearGradient>
+<symbol id="logo" viewBox="0 0 220 92"><polygon points="42,4 178,4 110,88" fill="#E0F2FE" stroke="#E52320" stroke-width="5" stroke-linejoin="round"/><text x="110" y="52" text-anchor="middle" font-family="Arial Black,Impact,sans-serif" font-style="italic" font-weight="900" font-size="38" fill="url(#g)" stroke="#111827" stroke-width="1.2">RESOLVE</text><rect x="14" y="58" width="192" height="19" fill="#111827"/><text x="110" y="72" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" letter-spacing="3.5" fill="#FACC15">DESPACHANTE</text></symbol>
+</defs></svg>
+
+<header class="sticky top-0 z-40 backdrop-blur border-b" style="background:color-mix(in srgb,var(--bg) 88%,transparent);border-color:var(--line)">
+<div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
+<a href="#topo" aria-label="RESOLVE Despachante"><svg class="h-11 w-[104px]"><use href="#logo"/></svg></a>
+<nav class="hidden md:flex gap-7 text-sm font-semibold" style="color:var(--muted)">
+<a href="#como" class="hover:text-[var(--red)]">Como Funciona</a>
+<a href="#diferenciais" class="hover:text-[var(--red)]">Diferenciais</a>
+<a href="#faq" class="hover:text-[var(--red)]">Perguntas Frequentes</a>
+</nav>
+<button class="btn !py-2.5 !px-4 text-sm" data-open>LICENCIAMENTO</button>
+</div>
+</header>
+
+<main id="topo">
+<section class="relative overflow-hidden" style="background:linear-gradient(180deg,var(--ice),var(--bg))">
+<div class="max-w-6xl mx-auto px-4 py-14 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+<div class="fade">
+<span class="inline-flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-full" style="background:var(--card);border:1px solid var(--line)"><i data-i="zap" class="ic" style="color:var(--red)"></i> Despachante 100% digital</span>
+<h1 class="mt-5 text-3xl sm:text-4xl md:text-5xl font-black leading-tight">Regularize o Licenciamento do seu Veículo <span style="color:var(--red)">sem Filas e Sem Complicação.</span></h1>
+<p class="mt-4 text-lg" style="color:var(--muted)">O despachante digital que resolve a sua vida em minutos. Rápido, seguro e 100% online.</p>
+<button class="btn mt-7 w-full sm:w-auto text-base sm:text-lg !px-8 !py-4" data-open>INICIAR LICENCIAMENTO AGORA <i data-i="arrow" class="ic"></i></button>
+<div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold">
+<span class="flex items-center gap-1.5"><span class="flex" style="color:var(--gold)"><i data-i="star" class="ic"></i><i data-i="star" class="ic"></i><i data-i="star" class="ic"></i><i data-i="star" class="ic"></i><i data-i="star" class="ic"></i></span> 4.9/5 de clientes satisfeitos</span>
+<span class="flex items-center gap-1.5" style="color:var(--muted)"><i data-i="shield" class="ic" style="color:var(--red)"></i> Pagamento seguro</span>
+</div>
+</div>
+<div class="card p-6 md:p-8 fade">
+<div class="flex items-center justify-between"><p class="font-extrabold">Seu licenciamento em 3 passos</p><span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:var(--gold);color:#111827">Online</span></div>
+<ul class="mt-5 space-y-4 text-sm">
+<li class="flex gap-3 items-center"><i data-i="car" class="ic" style="color:var(--red)"></i> Informe placa e RENAVAM</li>
+<li class="flex gap-3 items-center"><i data-i="upload" class="ic" style="color:var(--red)"></i> Envie a foto do documento</li>
+<li class="flex gap-3 items-center"><i data-i="msg" class="ic" style="color:var(--red)"></i> Receba o CRLV-e no WhatsApp</li>
+</ul>
+<div class="mt-6 rounded-xl p-4 flex justify-between items-center" style="background:var(--ice)"><span class="text-sm" style="color:var(--muted)">Honorários a partir de</span><span class="text-2xl font-black" style="color:var(--red)">R$ 89,00</span></div>
+</div>
+</div>
+</section>
+
+<section id="como" class="py-16" style="background:var(--bg)">
+<div class="max-w-6xl mx-auto px-4">
+<h2 class="text-2xl md:text-4xl font-black text-center">Como Funciona</h2>
+<p class="text-center mt-2" style="color:var(--muted)">Toque em um passo para ver os detalhes.</p>
+<div class="grid md:grid-cols-3 gap-5 mt-10" id="steps">
+<button class="card p-6 text-left step-card" data-s="0"><span class="step-dot on">1</span><h3 class="font-extrabold mt-3">Selecione o serviço</h3><p class="text-sm mt-1" style="color:var(--muted)">Escolha o Licenciamento Anual.</p><p class="more text-sm mt-3 font-semibold" style="color:var(--red)">Sem cadastro complicado: você começa em segundos, direto pelo celular.</p></button>
+<button class="card p-6 text-left step-card" data-s="1"><span class="step-dot on">2</span><h3 class="font-extrabold mt-3">Envie o documento</h3><p class="text-sm mt-1" style="color:var(--muted)">Foto do CRLV/CNH ou Placa e RENAVAM.</p><p class="more hidden text-sm mt-3 font-semibold" style="color:var(--red)">Uma foto nítida basta. Se preferir, digite só a placa e o RENAVAM.</p></button>
+<button class="card p-6 text-left step-card" data-s="2"><span class="step-dot on">3</span><h3 class="font-extrabold mt-3">Receba no WhatsApp</h3><p class="text-sm mt-1" style="color:var(--muted)">Orçamento completo e CRLV-e atualizado.</p><p class="more hidden text-sm mt-3 font-semibold" style="color:var(--red)">Você aprova o orçamento e recebe o documento digital direto na conversa.</p></button>
+</div>
+</div>
+</section>
+
+<section id="diferenciais" class="py-16" style="background:var(--bg2)">
+<div class="max-w-6xl mx-auto px-4">
+<h2 class="text-2xl md:text-4xl font-black text-center">Quem Somos e Por Que Escolher a RESOLVE</h2>
+<p class="text-center mt-3 max-w-2xl mx-auto" style="color:var(--muted)">Somos um despachante moderno que une experiência em documentação veicular com tecnologia para você não perder tempo.</p>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+<div class="card p-6"><div class="w-12 h-12 rounded-xl grid place-items-center" style="background:var(--ice);color:var(--red)"><i data-i="zap" class="ic"></i></div><h3 class="font-extrabold mt-4">Agilidade Garantida</h3><p class="text-sm mt-1" style="color:var(--muted)">Processo enxuto e acompanhamento em cada etapa.</p></div>
+<div class="card p-6"><div class="w-12 h-12 rounded-xl grid place-items-center" style="background:var(--ice);color:var(--red)"><i data-i="heart" class="ic"></i></div><h3 class="font-extrabold mt-4">Atendimento Humanizado</h3><p class="text-sm mt-1" style="color:var(--muted)">Gente de verdade tirando suas dúvidas no WhatsApp.</p></div>
+<div class="card p-6"><div class="w-12 h-12 rounded-xl grid place-items-center" style="background:var(--ice);color:var(--red)"><i data-i="card" class="ic"></i></div><h3 class="font-extrabold mt-4">Pagamento Facilitado</h3><p class="text-sm mt-1" style="color:var(--muted)">PIX ou cartão, do jeito que ficar melhor para você.</p></div>
+<div class="card p-6"><div class="w-12 h-12 rounded-xl grid place-items-center" style="background:var(--ice);color:var(--red)"><i data-i="file" class="ic"></i></div><h3 class="font-extrabold mt-4">Sem Burocracia</h3><p class="text-sm mt-1" style="color:var(--muted)">Nós cuidamos da papelada. Você só envia os dados.</p></div>
+</div>
+</div>
+</section>
+
+<section id="faq" class="py-16" style="background:var(--bg)">
+<div class="max-w-3xl mx-auto px-4">
+<h2 class="text-2xl md:text-4xl font-black text-center">Perguntas Frequentes</h2>
+<div class="mt-8 space-y-3">
+<details class="card px-5 py-4"><summary class="flex justify-between items-center gap-3 font-bold">Qual o prazo para receber o CRLV-e? <i data-i="chev" class="ic chev"></i></summary><p class="mt-3 text-sm" style="color:var(--muted)">Após a confirmação do pagamento e quitação dos débitos, o prazo costuma ser de poucas horas a 1 dia útil, conforme a liberação do DETRAN.</p></details>
+<details class="card px-5 py-4"><summary class="flex justify-between items-center gap-3 font-bold">Meu veículo tem multas. Consigo licenciar? <i data-i="chev" class="ic chev"></i></summary><p class="mt-3 text-sm" style="color:var(--muted)">Multas vencidas precisam ser quitadas para liberar o licenciamento. Consultamos tudo antes e informamos os valores no orçamento.</p></details>
+<details class="card px-5 py-4"><summary class="flex justify-between items-center gap-3 font-bold">Como envio o documento? <i data-i="chev" class="ic chev"></i></summary><p class="mt-3 text-sm" style="color:var(--muted)">Pelo formulário, com uma foto do CRLV ou da CNH, ou apenas informando a placa e o RENAVAM. Depois seguimos a conversa pelo WhatsApp.</p></details>
+<details class="card px-5 py-4"><summary class="flex justify-between items-center gap-3 font-bold">O que está incluso nos R$ 89,00? <i data-i="chev" class="ic chev"></i></summary><p class="mt-3 text-sm" style="color:var(--muted)">São os honorários do despachante. As taxas oficiais do DETRAN e eventuais débitos são cobrados à parte, com valor exato no orçamento.</p></details>
+<details class="card px-5 py-4"><summary class="flex justify-between items-center gap-3 font-bold">Quais formas de pagamento? <i data-i="chev" class="ic chev"></i></summary><p class="mt-3 text-sm" style="color:var(--muted)">PIX ou cartão de crédito, combinados no WhatsApp após você aprovar o orçamento.</p></details>
+</div>
+</div>
+</section>
+
+<section class="px-4 pb-16" style="background:var(--bg)">
+<div class="max-w-4xl mx-auto rounded-3xl p-8 md:p-12 text-center text-white" style="background:#111827">
+<h2 class="text-2xl md:text-3xl font-black">Pronto para <span style="color:var(--gold)">resolver</span> o seu licenciamento?</h2>
+<button class="btn mt-6 !px-8 !py-4" data-open>INICIAR LICENCIAMENTO AGORA</button>
+</div>
+</section>
+</main>
+
+<footer style="background:#111827;color:#D1D5DB">
+<div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 text-sm">
+<div><svg class="h-14 w-[134px]"><use href="#logo"/></svg><p class="mt-3">RESOLVE Despachante<br>CNPJ: 00.000.000/0001-00</p></div>
+<div><p class="font-bold text-white mb-2">Institucional</p><a href="#" class="block hover:text-white py-1">Política de Privacidade</a><a href="#" class="block hover:text-white py-1">Termos de Uso</a></div>
+<div><p class="font-bold text-white mb-2">Contato</p>
+<div class="flex gap-3">
+<a href="https://wa.me/5519999999999" class="w-11 h-11 rounded-full grid place-items-center" style="background:#1F2937" aria-label="WhatsApp"><i data-i="msg" class="ic"></i></a>
+<a href="mailto:contato@resolvedespachante.com.br" class="w-11 h-11 rounded-full grid place-items-center" style="background:#1F2937" aria-label="E-mail"><i data-i="mail" class="ic"></i></a>
+<a href="tel:+5519999999999" class="w-11 h-11 rounded-full grid place-items-center" style="background:#1F2937" aria-label="Telefone"><i data-i="phone" class="ic"></i></a>
+</div></div>
+</div>
+<p class="text-center text-xs pb-6" style="color:#9CA3AF">© 2026 RESOLVE Despachante. Todos os direitos reservados.</p>
+</footer>
+
+<!-- MODAL -->
+<div id="modal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4" style="background:rgba(17,24,39,.65)" role="dialog" aria-modal="true" aria-label="Licenciamento">
+<div class="card w-full sm:max-w-lg max-h-[94vh] overflow-y-auto !rounded-b-none sm:!rounded-b-[1.25rem] p-5 sm:p-7 fade" style="padding-bottom:calc(1.25rem + env(safe-area-inset-bottom,0px))">
+<div class="flex justify-between items-center">
+<h2 class="font-black text-lg">Licenciamento</h2>
+<button id="close" class="p-2 rounded-full" aria-label="Fechar"><i data-i="x" class="ic"></i></button>
+</div>
+<div class="flex items-center gap-2 mt-4" id="dots">
+<span class="step-dot on">1</span><span class="flex-1 h-0.5" style="background:var(--line)"></span><span class="step-dot">2</span><span class="flex-1 h-0.5" style="background:var(--line)"></span><span class="step-dot">3</span><span class="flex-1 h-0.5" style="background:var(--line)"></span><span class="step-dot">4</span>
+</div>
+
+<form id="form" novalidate autocomplete="off" class="mt-5">
+<div data-p="0" class="space-y-3 fade">
+<p class="font-bold">Seus dados</p>
+<input class="fld" id="nome" placeholder="Nome completo" autocomplete="name">
+<input class="fld" id="tel" placeholder="WhatsApp (DDD + número)" inputmode="tel" autocomplete="tel">
+<div class="grid grid-cols-2 gap-3">
+<input class="fld" id="placa" placeholder="Placa (ABC1D23)" maxlength="7" style="text-transform:uppercase">
+<input class="fld" id="renavam" placeholder="RENAVAM" inputmode="numeric" maxlength="11">
+</div>
+<p id="err" class="text-sm font-semibold hidden" style="color:var(--red)"></p>
+</div>
+
+<div data-p="1" class="hidden space-y-3 fade">
+<p class="font-bold">Foto do documento <span class="text-xs font-normal" style="color:var(--muted)">(CNH ou CRLV antigo, opcional)</span></p>
+<label id="drop" class="block rounded-2xl border-2 border-dashed p-6 text-center cursor-pointer" style="border-color:var(--line);background:var(--bg2)">
+<input type="file" id="file" accept="image/*" class="hidden">
+<div id="ph"><i data-i="upload" class="ic mx-auto" style="width:2rem;height:2rem;color:var(--red)"></i><p class="mt-2 font-semibold text-sm">Arraste a foto aqui ou toque para escolher</p><p class="text-xs mt-1" style="color:var(--muted)">JPG ou PNG</p></div>
+<div id="pv" class="hidden"><img id="img" alt="Prévia do documento" class="max-h-48 mx-auto rounded-xl"><p id="fn" class="text-xs mt-2 font-semibold"></p><button type="button" id="rm" class="text-xs font-bold mt-1 underline" style="color:var(--red)">Remover</button></div>
+</label>
+</div>
+
+<div data-p="2" class="hidden fade">
+<p class="font-bold">Resumo e honorários</p>
+<div class="rounded-2xl p-4 mt-3 space-y-2 text-sm" style="background:var(--ice)">
+<div class="flex justify-between"><span>Honorários do despachante</span><b>R$ 89,00</b></div>
+<div class="flex justify-between"><span>Taxas oficiais do DETRAN</span><b>A consultar</b></div>
+<div class="flex justify-between"><span>Débitos e multas (se houver)</span><b>A consultar</b></div>
+<hr style="border-color:var(--line)">
+<div class="flex justify-between text-base"><span class="font-bold">Total inicial</span><b style="color:var(--red)">R$ 89,00 + taxas</b></div>
+</div>
+<p class="text-xs mt-3" style="color:var(--muted)">O valor exato das taxas oficiais será confirmado no seu orçamento pelo WhatsApp. Pagamento por PIX ou cartão, somente após a sua aprovação.</p>
+</div>
+
+<div data-p="3" class="hidden fade">
+<p class="font-bold">Confirme e envie</p>
+<div id="rev" class="rounded-2xl p-4 mt-3 text-sm space-y-1" style="background:var(--bg2);border:1px solid var(--line)"></div>
+<p class="text-xs mt-3" style="color:var(--muted)">Ao confirmar, abriremos o WhatsApp com a mensagem pronta e enviaremos os dados à nossa equipe por e-mail.</p>
+<div id="done" class="hidden mt-4 rounded-2xl p-4 text-sm font-semibold" style="background:var(--ice)"></div>
+</div>
+
+<div class="flex gap-3 mt-6">
+<button type="button" id="back" class="btn2 hidden">Voltar</button>
+<button type="button" id="next" class="btn flex-1">Continuar</button>
+</div>
+</form>
+</div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const WA="5519999999999"; // TODO: número do despachante (DDI+DDD+número)
+const P={"zap":'<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',"heart":'<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.500 2-1.500-1.500-2.700-2-4.500-2A5.500 5.500 0 0 0 2 8.500c0 2.300 1.500 4 3 5.500l7 7Z"/>',"card":'<rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/>',"file":'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="m9 15 2 2 4-4"/>',"shield":'<path d="M20 13c0 5-3.500 7.500-7.700 9a1 1 0 0 1-.7 0C7.500 20.500 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.500-1.200 6.200-2.700a1.200 1.200 0 0 1 1.500 0C14.500 3.800 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',"upload":'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5M12 3v12"/>',"x":'<path d="M18 6 6 18M6 6l12 12"/>',"msg":'<path d="M7.900 20A9 9 0 1 0 4 16.100L2 22Z"/>',"mail":'<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.970 5.700a2 2 0 0 1-2.060 0L2 7"/>',"phone":'<path d="M22 16.900v3a2 2 0 0 1-2.200 2 19.800 19.800 0 0 1-8.600-3.100 19.500 19.500 0 0 1-6-6A19.800 19.800 0 0 1 2.100 4.200 2 2 0 0 1 4.100 2h3a2 2 0 0 1 2 1.700c.1 1 .4 1.900.7 2.800a2 2 0 0 1-.5 2.100L8.100 9.900a16 16 0 0 0 6 6l1.300-1.300a2 2 0 0 1 2.100-.5c.9.300 1.800.6 2.800.7a2 2 0 0 1 1.700 2z"/>',"chev":'<path d="m6 9 6 6 6-6"/>',"arrow":'<path d="M5 12h14m-7-7 7 7-7 7"/>',"car":'<path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.700-1.500-1.900L18 10l-2.700-3.600A2 2 0 0 0 13.700 6H7a2 2 0 0 0-1.800 1.100L4 10l-1.500 1.100C1.700 11.300 1 12.100 1 13v3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/>',"star":'<polygon fill="currentColor" points="12 2 15.100 8.300 22 9.300 17 14.100 18.200 21 12 17.800 5.800 21 7 14.100 2 9.300 8.900 8.300 12 2"/>'};
+$$('[data-i]').forEach(e=>{const s=document.createElementNS('http://www.w3.org/2000/svg','svg');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('fill','none');s.setAttribute('stroke','currentColor');s.setAttribute('stroke-width','2');s.setAttribute('stroke-linecap','round');s.setAttribute('stroke-linejoin','round');s.setAttribute('class',e.className);s.setAttribute('style',e.getAttribute('style')||'');s.innerHTML=P[e.dataset.i];e.replaceWith(s)});
+
+// Como funciona
+$$('.step-card').forEach(c=>c.onclick=()=>{$$('.step-card .more').forEach(m=>m.classList.add('hidden'));c.querySelector('.more').classList.remove('hidden')});
+$$('.step-card .more').forEach((m,i)=>i&&m.classList.add('hidden'));
+
+// Modal
+let step=0,file=null,url="";
+const M=$('#modal'),pages=$$('[data-p]');
+const open=()=>{M.classList.remove('hidden');M.classList.add('flex');document.body.style.overflow='hidden';go(0)};
+const close=()=>{M.classList.add('hidden');M.classList.remove('flex');document.body.style.overflow=''};
+$$('[data-open]').forEach(b=>b.onclick=open);
+$('#close').onclick=close;M.onclick=e=>{if(e.target===M)close()};
+document.onkeydown=e=>{if(e.key==='Escape')close()};
+
+function go(n){step=n;pages.forEach((p,i)=>p.classList.toggle('hidden',i!==n));
+$$('#dots .step-dot').forEach((d,i)=>{d.className='step-dot'+(i<n?' ok':i===n?' on':'');d.innerHTML=i<n?'✓':i+1});
+$('#back').classList.toggle('hidden',n===0);
+$('#next').textContent=n===3?'Enviar pelo WhatsApp':n===1&&!file?'Pular e continuar':'Continuar';
+if(n===3)review()}
+
+$('#tel').oninput=e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);e.target.value=v.length>6?`(${v.slice(0,2)}) ${v.slice(2,v.length>10?7:6)}-${v.slice(v.length>10?7:6)}`:v.length>2?`(${v.slice(0,2)}) ${v.slice(2)}`:v};
+$('#placa').oninput=e=>e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'');
+$('#renavam').oninput=e=>e.target.value=e.target.value.replace(/\D/g,'');
+
+function valid(){
+const c=[['nome',v=>v.trim().split(/\s+/).length>=2,'Informe o nome completo.'],['tel',v=>v.replace(/\D/g,'').length>=10,'Informe um WhatsApp válido com DDD.'],['placa',v=>/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/.test(v),'Placa inválida (ex: ABC1D23).'],['renavam',v=>/^\d{9,11}$/.test(v),'RENAVAM deve ter de 9 a 11 números.']];
+$$('.fld').forEach(f=>f.classList.remove('err'));
+for(const[id,t,m]of c){const el=$('#'+id);if(!t(el.value)){el.classList.add('err');el.focus();$('#err').textContent=m;$('#err').classList.remove('hidden');return false}}
+$('#err').classList.add('hidden');return true}
+
+// Upload
+const drop=$('#drop');
+function setFile(f){if(!f||!f.type.startsWith('image/'))return;file=f;if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(f);$('#img').src=url;$('#fn').textContent=f.name;$('#ph').classList.add('hidden');$('#pv').classList.remove('hidden');go(1)}
+$('#file').onchange=e=>setFile(e.target.files[0]);
+['dragenter','dragover'].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.style.borderColor='var(--red)'}));
+['dragleave','drop'].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.style.borderColor='var(--line)'}));
+drop.addEventListener('drop',e=>setFile(e.dataTransfer.files[0]));
+$('#rm').onclick=e=>{e.preventDefault();file=null;$('#file').value='';$('#pv').classList.add('hidden');$('#ph').classList.remove('hidden');go(1)};
+
+function data(){return{nome:$('#nome').value.trim(),tel:$('#tel').value,placa:$('#placa').value,renavam:$('#renavam').value}}
+function review(){const d=data();$('#rev').innerHTML=`<p><b>Nome:</b> ${esc(d.nome)}</p><p><b>WhatsApp:</b> ${esc(d.tel)}</p><p><b>Placa:</b> ${esc(d.placa)}</p><p><b>RENAVAM:</b> ${esc(d.renavam)}</p><p><b>Documento:</b> ${file?esc(file.name):'não enviado'}</p><p><b>Honorários:</b> R$ 89,00 + taxas oficiais</p>`}
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+$('#back').onclick=()=>go(step-1);
+$('#next').onclick=()=>{
+if(step===0&&!valid())return;
+if(step<3)return go(step+1);
+const d=data();
+const msg=`Olá, RESOLVE Despachante! Quero solicitar o *Licenciamento*.\n\n*Nome:* ${d.nome}\n*WhatsApp:* ${d.tel}\n*Placa:* ${d.placa}\n*RENAVAM:* ${d.renavam}\n*Documento anexado:* ${file?'Sim (envio a foto nesta conversa)':'Não'}\n*Honorários:* R$ 89,00 + taxas oficiais do DETRAN\n\nAguardo o orçamento completo.`;
+// Envio de e-mail simulado (em produção, troque por um backend/serviço de e-mail)
+const payload={to:'contato@resolvedespachante.com.br',subject:`Novo licenciamento - ${d.placa}`,body:msg,attachment:file?file.name:null};
+console.log('E-mail simulado:',payload);
+const b=$('#next');b.disabled=true;b.textContent='Enviando...';
+setTimeout(()=>{
+const done=$('#done');done.classList.remove('hidden');
+done.innerHTML='✓ Solicitação enviada à equipe por e-mail (simulado). Se o WhatsApp não abriu, <a class="underline" style="color:var(--red)" href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener">toque aqui</a>.';
+b.textContent='Concluído';
+window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank','noopener');
+},700)};
+</script>
+</body>
+</html>
